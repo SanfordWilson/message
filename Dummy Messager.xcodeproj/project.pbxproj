@@ -13,7 +13,8 @@
 		E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E03407AF1EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld */; };
 		E03407B31EF199D0008DDCE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03407B21EF199D0008DDCE0 /* Assets.xcassets */; };
 		E03407B61EF199D0008DDCE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03407B41EF199D0008DDCE0 /* LaunchScreen.storyboard */; };
-		E03407BE1EF19B99008DDCE0 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */; };
+		E03407BF1EF1FAB9008DDCE0 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */; };
+		E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407C01EF20DC4008DDCE0 /* Chat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E03407B51EF199D0008DDCE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E03407B71EF199D0008DDCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
+		E03407C01EF20DC4008DDCE0 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				E03407AA1EF199D0008DDCE0 /* ViewController.swift */,
 				E03407AC1EF199D0008DDCE0 /* Main.storyboard */,
 				E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */,
+				E03407C01EF20DC4008DDCE0 /* Chat.swift */,
 				E03407B21EF199D0008DDCE0 /* Assets.xcassets */,
 				E03407B41EF199D0008DDCE0 /* LaunchScreen.storyboard */,
 				E03407B71EF199D0008DDCE0 /* Info.plist */,
@@ -143,9 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E03407AB1EF199D0008DDCE0 /* ViewController.swift in Sources */,
-				E03407BE1EF19B99008DDCE0 /* ChatsTableViewController.swift in Sources */,
 				E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */,
 				E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */,
+				E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */,
+				E03407BF1EF1FAB9008DDCE0 /* ChatsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
