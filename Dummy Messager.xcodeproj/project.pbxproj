@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407A81EF199D0008DDCE0 /* AppDelegate.swift */; };
 		E03407AB1EF199D0008DDCE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407AA1EF199D0008DDCE0 /* ViewController.swift */; };
-		E03407AE1EF199D0008DDCE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03407AC1EF199D0008DDCE0 /* Main.storyboard */; };
 		E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E03407AF1EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld */; };
 		E03407B31EF199D0008DDCE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03407B21EF199D0008DDCE0 /* Assets.xcassets */; };
 		E03407B61EF199D0008DDCE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03407B41EF199D0008DDCE0 /* LaunchScreen.storyboard */; };
-		E03407BF1EF1FAB9008DDCE0 /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */; };
+		E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */; };
 		E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407C01EF20DC4008DDCE0 /* Chat.swift */; };
 		E03407C31EF21C56008DDCE0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407C21EF21C56008DDCE0 /* Message.swift */; };
 /* End PBXBuildFile section */
@@ -22,12 +21,11 @@
 		E03407A51EF199D0008DDCE0 /* Dummy Messager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dummy Messager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03407A81EF199D0008DDCE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E03407AA1EF199D0008DDCE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E03407AD1EF199D0008DDCE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E03407B01EF199D0008DDCE0 /* Dummy_Messager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dummy_Messager.xcdatamodel; sourceTree = "<group>"; };
 		E03407B21EF199D0008DDCE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E03407B51EF199D0008DDCE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E03407B71EF199D0008DDCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
+		E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		E03407C01EF20DC4008DDCE0 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E03407C21EF21C56008DDCE0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,8 +62,7 @@
 			children = (
 				E03407A81EF199D0008DDCE0 /* AppDelegate.swift */,
 				E03407AA1EF199D0008DDCE0 /* ViewController.swift */,
-				E03407AC1EF199D0008DDCE0 /* Main.storyboard */,
-				E03407BD1EF19B99008DDCE0 /* ChatsTableViewController.swift */,
+				E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */,
 				E03407C01EF20DC4008DDCE0 /* Chat.swift */,
 				E03407C21EF21C56008DDCE0 /* Message.swift */,
 				E03407B21EF199D0008DDCE0 /* Assets.xcassets */,
@@ -137,7 +134,6 @@
 			files = (
 				E03407B61EF199D0008DDCE0 /* LaunchScreen.storyboard in Resources */,
 				E03407B31EF199D0008DDCE0 /* Assets.xcassets in Resources */,
-				E03407AE1EF199D0008DDCE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,21 +149,13 @@
 				E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */,
 				E03407C31EF21C56008DDCE0 /* Message.swift in Sources */,
 				E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */,
-				E03407BF1EF1FAB9008DDCE0 /* ChatsTableViewController.swift in Sources */,
+				E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E03407AC1EF199D0008DDCE0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E03407AD1EF199D0008DDCE0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E03407B41EF199D0008DDCE0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -317,6 +305,7 @@
 				E03407BC1EF199D0008DDCE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
