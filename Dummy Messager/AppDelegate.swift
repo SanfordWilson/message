@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let chatsViewController = ChatsViewController(collectionViewLayout: UICollectionViewLayout())
+        let chatsViewController = ChatsViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window?.rootViewController = UINavigationController(rootViewController: chatsViewController)
         
         return true
