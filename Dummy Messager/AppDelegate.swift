@@ -18,10 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //create and display a window within the screen
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
+        //initialize a chatsViewController with some set of options that I don't understand but work for now
         let chatsViewController = ChatsViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        //put a navigation conroller as the root of the window, and make the chatsViewController the main view for the Nav
+        //might need to subclass the navigation controller to add the false status bar, or possibly create a containing view for the Nav? idk
         window?.rootViewController = UINavigationController(rootViewController: chatsViewController)
         
         return true

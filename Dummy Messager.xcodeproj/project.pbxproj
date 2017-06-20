@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02C943D1EF8B54000323FF2 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02C943C1EF8B54000323FF2 /* Cell.swift */; };
+		E02C943F1EF8B58800323FF2 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02C943E1EF8B58800323FF2 /* ChatCell.swift */; };
 		E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407A81EF199D0008DDCE0 /* AppDelegate.swift */; };
 		E03407AB1EF199D0008DDCE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407AA1EF199D0008DDCE0 /* ViewController.swift */; };
 		E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E03407AF1EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E02C943C1EF8B54000323FF2 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		E02C943E1EF8B58800323FF2 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		E03407A51EF199D0008DDCE0 /* Dummy Messager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dummy Messager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03407A81EF199D0008DDCE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E03407AA1EF199D0008DDCE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				E03407A81EF199D0008DDCE0 /* AppDelegate.swift */,
 				E03407AA1EF199D0008DDCE0 /* ViewController.swift */,
 				E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */,
+				E02C943E1EF8B58800323FF2 /* ChatCell.swift */,
+				E02C943C1EF8B54000323FF2 /* Cell.swift */,
 				E03407C01EF20DC4008DDCE0 /* Chat.swift */,
 				E03407C21EF21C56008DDCE0 /* Message.swift */,
 				E03407B21EF199D0008DDCE0 /* Assets.xcassets */,
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E03407AB1EF199D0008DDCE0 /* ViewController.swift in Sources */,
+				E02C943F1EF8B58800323FF2 /* ChatCell.swift in Sources */,
 				E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */,
+				E02C943D1EF8B54000323FF2 /* Cell.swift in Sources */,
 				E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */,
 				E03407C31EF21C56008DDCE0 /* Message.swift in Sources */,
 				E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */,
