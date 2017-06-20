@@ -8,6 +8,17 @@
 
 import Foundation
 
-class Message {
+class Message: NSObject {
     
+    var text: String?
+    var time: Date?
+    var chat: Chat?
+    
+    //should delay times go with the sender? We'll figure more out as we go
+    
+    init(text: String, sentAt time: Date, onThread chat: Chat) {
+        self.text = text
+        self.time = time
+        self.chat = chat
+    }
 }

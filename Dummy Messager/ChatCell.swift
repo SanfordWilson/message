@@ -34,13 +34,24 @@ class ChatCell: Cell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Janani Lee"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
     let snippetLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hey there, sexy Dashy"
+        label.text = "Hey there, sexy Dashy, this message is too long to fit on the screen"
         label.textColor = UIColor.darkGray
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+    
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sunday"
+        label.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        label.textColor = UIColor.darkGray
+        label.textAlignment = .right
         return label
     }()
     
@@ -66,20 +77,20 @@ class ChatCell: Cell {
         
         //set up preview containter
         let containerView = UIView()
-        containerView.backgroundColor = UIColor.cyan
         
         //place preview container
         addSubview(containerView)
         visuallyFormat(format: "H:|-90-[v0]|", views: containerView)
-        visuallyFormat(format: "V:[v0(60)]", views: containerView)
-        addConstraint(NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        visuallyFormat(format: "V:|-10-[v0(60)]", views: containerView)
         
         containerView.addSubview(nameLabel)
         containerView.addSubview(snippetLabel)
+        containerView.addSubview(timeLabel)
         
         containerView.visuallyFormat(format: "V:|[v0][v1(24)]", views: nameLabel, snippetLabel)
-        containerView.visuallyFormat(format: "H:|[v0]|", views: nameLabel)
+        containerView.visuallyFormat(format: "H:|[v0][v1(80)]-5-|", views: nameLabel, timeLabel)
         containerView.visuallyFormat(format: "H:|[v0]|", views: snippetLabel)
+        containerView.visuallyFormat(format: "V:|[v0]", views: timeLabel)
         
     }
 }

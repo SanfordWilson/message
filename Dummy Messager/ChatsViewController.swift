@@ -14,6 +14,13 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
     
     //also, is this where I'll add the buttons, or will I do that in the nav controller subclass?
     
+    var messages: [Message]?
+    
+    func makeFriends() {
+        let newChat = Chat(name:"Janani Lee", imageNamed: "Janani")
+        
+    }
+    
     private let chatsCellIdentifier = "reuse me broh"
     override func viewDidLoad() {
         super.viewDidLoad()
