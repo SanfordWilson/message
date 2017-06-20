@@ -28,7 +28,7 @@ class ChatCell: Cell {
             if let messageTime = message?.time {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "h:mm a"
-                timeLabel.text = formatter.string(from: messageTime)
+                timeLabel.text = formatter.string(from: messageTime as Date)
             }
         }
     }

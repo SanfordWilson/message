@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 class Chat: NSObject {
 
     var contactName: String?
@@ -20,3 +20,4 @@ class Chat: NSObject {
         contactImageName = imageNamed
     }
 }
+*/

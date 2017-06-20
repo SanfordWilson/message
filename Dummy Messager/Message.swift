@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 class Message: NSObject {
     
     var text: String?
@@ -22,3 +22,4 @@ class Message: NSObject {
         self.chat = chat
     }
 }
+*/
