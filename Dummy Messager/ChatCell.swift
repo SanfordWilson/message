@@ -13,6 +13,27 @@ class ChatCell: Cell {
     many many things left to add in here
     */
     
+    
+    //placeholder message var will be improved later
+    
+    var message: Message? {
+        didSet {
+            nameLabel.text = message?.chat?.contactName
+            snippetLabel.text = message?.text
+            if let profileImageName = message?.chat?.contactImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+            } else {
+                profileImageView.image = nil
+            }
+            if let messageTime = message?.time {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "h:mm a"
+                timeLabel.text = formatter.string(from: messageTime)
+            }
+        }
+    }
+    
+    
     //set up an empty imageview for the profile pic with scaling and circular border
     let profileImageView: UIImageView = {
         let profileView = UIImageView()
