@@ -17,6 +17,7 @@
 		E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */; };
 		E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407C01EF20DC4008DDCE0 /* Chat.swift */; };
 		E03407C31EF21C56008DDCE0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407C21EF21C56008DDCE0 /* Message.swift */; };
+		E056294F1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		E03407C01EF20DC4008DDCE0 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E03407C21EF21C56008DDCE0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewControllerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				E03407A81EF199D0008DDCE0 /* AppDelegate.swift */,
 				E03407AA1EF199D0008DDCE0 /* ViewController.swift */,
 				E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */,
+				E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */,
 				E02C943E1EF8B58800323FF2 /* ChatCell.swift */,
 				E02C943C1EF8B54000323FF2 /* Cell.swift */,
 				E03407C01EF20DC4008DDCE0 /* Chat.swift */,
@@ -156,6 +159,7 @@
 				E02C943D1EF8B54000323FF2 /* Cell.swift in Sources */,
 				E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */,
 				E03407C31EF21C56008DDCE0 /* Message.swift in Sources */,
+				E056294F1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift in Sources */,
 				E03407C11EF20DC4008DDCE0 /* Chat.swift in Sources */,
 				E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */,
 			);
