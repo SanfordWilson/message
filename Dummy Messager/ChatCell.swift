@@ -31,17 +31,17 @@ class ChatCell: Cell {
     
     //placeholder name
     
-    let nameLable: UILabel = {
-        let lable = UILabel()
-        lable.text = "Janani Lee"
-        return lable
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Janani Lee"
+        return label
     }()
     
-    let snippetLable: UILabel = {
-        let lable = UILabel()
-        lable.text = "Hey there, sexy Dashy"
-        lable.textColor = UIColor.darkGray
-        return lable
+    let snippetLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hey there, sexy Dashy"
+        label.textColor = UIColor.darkGray
+        return label
     }()
     
     override func shapeCell() {
@@ -74,12 +74,12 @@ class ChatCell: Cell {
         visuallyFormat(format: "V:[v0(60)]", views: containerView)
         addConstraint(NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
-        containerView.addSubview(nameLable)
-        containerView.addSubview(snippetLable)
+        containerView.addSubview(nameLabel)
+        containerView.addSubview(snippetLabel)
         
-        containerView.visuallyFormat(format: "V:|[v0][v1(24)]", views: nameLable, snippetLable)
-        containerView.visuallyFormat(format: "H:|[v0]|", views: nameLable)
-        containerView.visuallyFormat(format: "H:|[v0]|", views: snippetLable)
+        containerView.visuallyFormat(format: "V:|[v0][v1(24)]", views: nameLabel, snippetLabel)
+        containerView.visuallyFormat(format: "H:|[v0]|", views: nameLabel)
+        containerView.visuallyFormat(format: "H:|[v0]|", views: snippetLabel)
         
     }
 }
