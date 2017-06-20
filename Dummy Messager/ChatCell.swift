@@ -29,6 +29,21 @@ class ChatCell: Cell {
         return view
     }()
     
+    //placeholder name
+    
+    let nameLable: UILabel = {
+        let lable = UILabel()
+        lable.text = "Janani Lee"
+        return lable
+    }()
+    
+    let snippetLable: UILabel = {
+        let lable = UILabel()
+        lable.text = "Hey there, sexy Dashy"
+        lable.textColor = UIColor.darkGray
+        return lable
+    }()
+    
     override func shapeCell() {
         backgroundColor = UIColor.white
         
@@ -39,7 +54,8 @@ class ChatCell: Cell {
         
         //size and place the profile image
         visuallyFormat(format: "H:|-20-[v0(60)]", views: profileImageView)
-        visuallyFormat(format: "V:|-20-[v0(60)]", views: profileImageView)
+        visuallyFormat(format: "V:[v0(60)]", views: profileImageView)
+        addConstraint(NSLayoutConstraint(item: profileImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
         addSubview(dividerLine)
         
@@ -47,5 +63,23 @@ class ChatCell: Cell {
         //size and place the divider line
         visuallyFormat(format: "H:|-20-[v0]|", views: dividerLine)
         visuallyFormat(format: "V:[v0(1)]|", views: dividerLine)
+        
+        //set up preview containter
+        let containerView = UIView()
+        containerView.backgroundColor = UIColor.cyan
+        
+        //place preview container
+        addSubview(containerView)
+        visuallyFormat(format: "H:|-90-[v0]|", views: containerView)
+        visuallyFormat(format: "V:[v0(60)]", views: containerView)
+        addConstraint(NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        
+        containerView.addSubview(nameLable)
+        containerView.addSubview(snippetLable)
+        
+        containerView.visuallyFormat(format: "V:|[v0][v1(24)]", views: nameLable, snippetLable)
+        containerView.visuallyFormat(format: "H:|[v0]|", views: nameLable)
+        containerView.visuallyFormat(format: "H:|[v0]|", views: snippetLable)
+        
     }
 }

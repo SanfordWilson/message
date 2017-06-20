@@ -25,6 +25,10 @@ class Cell: UICollectionViewCell {
         backgroundColor = UIColor.black
     }
     
+}
+
+extension UIView {
+
     func visuallyFormat(format: String, views: UIView...) {
         
         var viewsDict = [String:UIView]()
@@ -35,5 +39,5 @@ class Cell: UICollectionViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDict))
     }
-}
 
+}
