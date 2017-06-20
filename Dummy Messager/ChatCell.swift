@@ -45,8 +45,7 @@ class ChatCell: Cell {
         
         
         //size and place the divider line
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": dividerLine]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(1)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": dividerLine]))
-        
+        visuallyFormat(format: "H:|-20-[v0]|", views: dividerLine)
+        visuallyFormat(format: "V:[v0(1)]|", views: dividerLine)
     }
 }
