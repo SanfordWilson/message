@@ -15,6 +15,7 @@ class ChatCell: Cell {
     
     
     //placeholder message var will be improved later
+    let currentTime = NSDate()
     
     var message: Message? {
         didSet {
@@ -28,8 +29,22 @@ class ChatCell: Cell {
             if let messageTime = message?.time {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "h:mm a"
+                
+                let timeSinceMessage = currentTime.timeIntervalSince(messageTime as Date)
+                
+                if timeSinceMessage > 60*60*24*7 {
+                    formatter.dateFormat = "MM/dd/yyyy"
+                } else if timeSinceMessage > 60*60*24 {
+                    formatter.dateFormat = "EEE"
+                }
                 timeLabel.text = formatter.string(from: messageTime as Date)
             }
+        }
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? UIColor.lightGray : UIColor.white
         }
     }
     

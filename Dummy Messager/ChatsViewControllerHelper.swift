@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 extension ChatsViewController {
+
     func wipeMessages() {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         if let context = delegate?.persistentContainer.viewContext {
@@ -41,22 +42,14 @@ extension ChatsViewController {
             janani.contactName = "Janani Lee"
             janani.contactImageName = "Janani"
             
-            let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            message.text = "hey Dash, you coming over tonight???"
-            message.time = NSDate(timeIntervalSinceNow: -100000)
-            message.chat = janani
-            //messages = [message]
+            createMessage(withText: "Dash-dash, come over: I'm making pasta", onChat: janani, context: context, time: NSDate(timeIntervalSinceNow: -98465))
+            createMessage(withText: "Sexy pasta", onChat: janani, context: context, time: NSDate())
             
             let sanford = NSEntityDescription.insertNewObject(forEntityName: "Chat", into: context) as! Chat
             sanford.contactName = "Sanford Wilson"
             sanford.contactImageName = "Sanford"
             
-            
-            let message1 = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            message1.text = "triple double triple double triple double flip"
-            message1.time = NSDate(timeIntervalSinceNow: -2389562)
-            message1.chat = sanford
-            //messages?.append(message1)
+            createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
             
             do { try context.save()
             } catch let err {
@@ -65,5 +58,26 @@ extension ChatsViewController {
         }
         
         loadMessages()
+    }
+    
+    private func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate) {
+        let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+        message.text = text
+        message.time = time
+        message.chat = chat
+        
+    }
+    
+    func fetchChats() -> [Chat]? {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            let context = delegate.persistentContainer.viewContext
+            let request: NSFetchRequest<Chat> = Chat.fetchRequest()
+            do {
+                return try context.fetch(request)
+            } catch {
+                return nil
+            }
+        }
+        return nil
     }
 }
