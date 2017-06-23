@@ -40,12 +40,16 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         cell.textView.text = messages?[indexPath.item].text
         
         if let messageText = messages?[indexPath.item].text {
-            let size = CGSize(width: view.frame.width/2.5, height: 1000)
+            let size = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-            let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
+            let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
 
-            cell.textView.frame = CGRect(x: 0, y: 0, width: view.frame.width/1.7 + 20, height: frameEstimate.height + 20)
-            cell.bubbleView.frame = CGRect(x: 0, y: 0, width: view.frame.width/1.7 + 20, height: frameEstimate.height + 20)
+            cell.textView.frame = CGRect(x: MessageCell.profilePictureRadius*4+5, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
+            cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*4, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
+        }
+        
+        if let contactImage = messages?[indexPath.item].chat?.contactImageName {
+            cell.profilePictureView.image = UIImage(named: contactImage)
         }
         return cell
     }
@@ -53,12 +57,16 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if let messageText = messages?[indexPath.item].text {
-            let size = CGSize(width: view.frame.width/1.7, height: 1000)
+            let size = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-            let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
+            let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
             return CGSize(width: view.frame.width, height: frameEstimate.height+20)
         }
         return CGSize(width: view.frame.width, height:100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(8, 0, 0, 0)
     }
     
 }

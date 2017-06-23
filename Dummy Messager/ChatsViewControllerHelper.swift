@@ -43,7 +43,7 @@ extension ChatsViewController {
             janani.contactImageName = "Janani"
             
             createMessage(withText: "Dash-dash, come over: I'm making pasta", onChat: janani, context: context, time: NSDate(timeIntervalSinceNow: -98465))
-            createMessage(withText: "Sexy pasta", onChat: janani, context: context, time: NSDate())
+            createMessage(withText: "Sexy pasta", onChat: janani, context: context, time: NSDate(), isSender: true)
             
             let sanford = NSEntityDescription.insertNewObject(forEntityName: "Chat", into: context) as! Chat
             sanford.contactName = "Sanford Wilson"
@@ -60,11 +60,12 @@ extension ChatsViewController {
         loadMessages()
     }
     
-    private func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate) {
+    private func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate, isSender: Bool = false) {
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.text = text
         message.time = time
         message.chat = chat
+        message.isSender = isSender
         
     }
     

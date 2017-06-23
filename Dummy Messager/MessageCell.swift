@@ -10,9 +10,11 @@ import UIKit
 
 class MessageCell: Cell {
     
+    static let profilePictureRadius: CGFloat = 10.0
+    
     let textView: UITextView = {
         let view = UITextView()
-        view.font = UIFont.systemFont(ofSize: 16)
+        view.font = UIFont.systemFont(ofSize: 18)
         view.text = "Test test test"
         view.textColor = UIColor.darkText
         view.backgroundColor = UIColor.clear
@@ -21,14 +23,28 @@ class MessageCell: Cell {
     
     let bubbleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0.7, alpha: 1)
+        view.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        view.layer.cornerRadius = 20
+        view.layer.masksToBounds = true
         return view
+    }()
+    
+    let profilePictureView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = MessageCell.profilePictureRadius
+        imageView.layer.masksToBounds = true
+        imageView.backgroundColor = UIColor.cyan
+        return imageView
     }()
     
     override func shapeCell() {
         super.shapeCell()
-        backgroundColor = UIColor.lightGray
+        backgroundColor = UIColor.white
         addSubview(bubbleView)
         addSubview(textView)
+        addSubview(profilePictureView)
+        visuallyFormat(format: "H:|-5-[v0(\(Int(MessageCell.profilePictureRadius)*2))]", views: profilePictureView)
+        visuallyFormat(format: "V:[v0(\(Int(MessageCell.profilePictureRadius)*2))]|", views: profilePictureView)
     }
 }

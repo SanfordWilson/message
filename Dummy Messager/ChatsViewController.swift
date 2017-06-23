@@ -11,9 +11,12 @@ import CoreData
 
 class ChatsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     /* First point of contact for user, displays list of chats
-    will need to figure out how to permanently attach special settings cell*/
+    TODO: special settings cell?
+    TODO: Custom Back Button
+    TODO: New Message Button
+    TODO: Whatever that left hand button is
+    */
     
-    //also, is this where I'll add the buttons, or will I do that in the nav controller subclass?
     
     var messages: [Message]?
     
