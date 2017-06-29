@@ -24,6 +24,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         let blurEffect = UIBlurEffect(style: .light)
         let view = UIVisualEffectView(effect: blurEffect)
         view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -117,7 +118,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(8, 0, 48, 0)
+        return UIEdgeInsetsMake(8, 0, 200, 0)
     }
     
 }

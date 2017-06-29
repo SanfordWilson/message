@@ -13,6 +13,9 @@ extension ConversationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ℹ︎", style: .plain, target: self, action: #selector(simulateMessage))
+        
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView?.alwaysBounceVertical = true
@@ -31,6 +34,27 @@ extension ConversationViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         inputTextField.endEditing(true)
+    }
+    
+    func simulateMessage() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+        
+        let newMessage = ChatsViewController.createMessage(withText: "poooo", onChat: chat!, context: context, time: NSDate(timeIntervalSinceNow: -2000))
+        
+        do {
+            try context.save()
+            
+            messages?.append(newMessage)
+            messages = messages?.sorted(by: {$0.time!.compare($1.time! as Date) == .orderedDescending})
+            
+            if let item = messages?.index(of: newMessage) {
+                let path = IndexPath(item: item, section: 0)
+                collectionView?.insertItems(at: [path])
+            }
+        } catch let err {
+            print(err)
+        }
     }
 
     func handleKeyboard(notification: Notification) {
@@ -60,8 +84,7 @@ extension ConversationViewController {
         messageInputView.contentView.visuallyFormat(format: "H:|-20-[v0]-10-[v1(20)]-10-|", views: inputTextField, inputTextFieldSendButton)
         messageInputView.contentView.visuallyFormat(format: "V:|-5-[v0]-5-|", views: inputTextField)
         messageInputView.contentView.addConstraint(NSLayoutConstraint(item: inputTextFieldSendButton, attribute: .centerY, relatedBy: .equal, toItem: inputTextField, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-        messageInputView.contentView.addConstraint(NSLayoutConstraint(item: inputTextFieldSendButton, attribute: .height, relatedBy: .equal, toItem: inputTextField, attribute: .height, multiplier: 1.0, constant: -6.0))
-        messageInputView.contentView.addConstraint(NSLayoutConstraint(item: inputTextFieldSendButton, attribute: .width, relatedBy: .equal, toItem: inputTextFieldSendButton, attribute: .height, multiplier: 1.0, constant: 0.0))
+        messageInputView.contentView.addConstraint(NSLayoutConstraint(item: inputTextFieldSendButton, attribute: .height, relatedBy: .equal, toItem: inputTextFieldSendButton, attribute: .width, multiplier: 1.0, constant: 0.0))
     }
     
 }

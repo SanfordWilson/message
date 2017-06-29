@@ -18,6 +18,7 @@ class MessageCell: Cell {
         view.text = "Test test test"
         view.textColor = UIColor.darkText
         view.backgroundColor = UIColor.clear
+        view.isEditable = false
         return view
     }()
     
