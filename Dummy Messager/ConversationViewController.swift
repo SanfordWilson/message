@@ -20,11 +20,51 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView?.alwaysBounceVertical = true
+    let messageInputView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .light)
+        let view = UIVisualEffectView(effect: blurEffect)
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
+    let inputTextField: UITextField = {
+        let field = UITextField()
+        field.placeholder = "iMessage"
+        field.borderStyle = .roundedRect
+        return field
+    }()
+    
+    
+    var bottomConstraint: NSLayoutConstraint?
+    
+    lazy var inputTextFieldSendButton: UIButton = {
+        let button = UIButton(type: UIButtonType.system)
+        button.setTitle("↑", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.backgroundColor = UIColor.darkGray
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(sendNewMessage), for: .touchUpInside)
+        return button
+    }()
+    
+    func sendNewMessage() {
+
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+        let newMessage = ChatsViewController.createMessage(withText: inputTextField.text, onChat: chat!, context: context, time: NSDate(), isSender: true)
+        
+        do {
+            try context.save()
+            messages?.append(newMessage)
+            let path = IndexPath(item: messages!.count - 1, section: 0)
+            collectionView?.insertItems(at: [path])
+            collectionView?.scrollToItem(at: path, at: .bottom, animated: true)
+            inputTextField.text = nil
+        } catch let err {
+            print(err)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,7 +117,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(8, 0, 0, 0)
+        return UIEdgeInsetsMake(8, 0, 48, 0)
     }
     
 }

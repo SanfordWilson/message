@@ -42,15 +42,21 @@ extension ChatsViewController {
             janani.contactName = "Janani Lee"
             janani.contactImageName = "Janani"
             
-            createMessage(withText: "Dash-dash, come over: I'm making pasta", onChat: janani, context: context, time: NSDate(timeIntervalSinceNow: -98465))
-            createMessage(withText: "Sexy pasta", onChat: janani, context: context, time: NSDate(), isSender: true)
+            let _ = ChatsViewController.createMessage(withText: "Dash-dash, come over: I'm making pasta", onChat: janani, context: context, time: NSDate(timeIntervalSinceNow: -98465))
+            let _ = ChatsViewController.createMessage(withText: "Sexy pasta", onChat: janani, context: context, time: NSDate(), isSender: true)
             
             let sanford = NSEntityDescription.insertNewObject(forEntityName: "Chat", into: context) as! Chat
             sanford.contactName = "Sanford Wilson"
             sanford.contactImageName = "Sanford"
             
-            createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
-            
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
+            let _ = ChatsViewController.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
             do { try context.save()
             } catch let err {
                 print(err)
@@ -60,13 +66,13 @@ extension ChatsViewController {
         loadMessages()
     }
     
-    private func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate, isSender: Bool = false) {
+    static func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate, isSender: Bool = false) -> Message {
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.text = text
         message.time = time
         message.chat = chat
         message.isSender = isSender
-        
+        return message
     }
     
     func fetchChats() -> [Chat]? {
