@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //put a navigation conroller as the root of the window, and make the chatsViewController the main view for the Nav
         //might need to subclass the navigation controller to add the false status bar, or possibly create a containing view for the Nav? idk
-        window?.rootViewController = UINavigationController(rootViewController: chatsViewController)
+        window?.rootViewController = NavigationController(rootViewController: chatsViewController)
         
         return true
     }

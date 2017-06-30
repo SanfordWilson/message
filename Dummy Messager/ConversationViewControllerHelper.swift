@@ -87,4 +87,8 @@ extension ConversationViewController {
         messageInputView.contentView.addConstraint(NSLayoutConstraint(item: inputTextFieldSendButton, attribute: .height, relatedBy: .equal, toItem: inputTextFieldSendButton, attribute: .width, multiplier: 1.0, constant: 0.0))
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
 }

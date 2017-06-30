@@ -18,6 +18,7 @@
 		E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */; };
 		E04E5A371F0435F0004FBA1F /* ConversationViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E5A361F0435F0004FBA1F /* ConversationViewControllerHelper.swift */; };
 		E056294F1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */; };
+		E07052EB1F05D07700AB2F66 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07052EA1F05D07700AB2F66 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		E04E5A361F0435F0004FBA1F /* ConversationViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewControllerHelper.swift; sourceTree = "<group>"; };
 		E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewControllerHelper.swift; sourceTree = "<group>"; };
+		E07052EA1F05D07700AB2F66 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				E03407A81EF199D0008DDCE0 /* AppDelegate.swift */,
+				E07052EA1F05D07700AB2F66 /* NavigationController.swift */,
 				E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */,
 				E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */,
 				E0104CA01EF9C7AF00A9AA10 /* ConversationViewController.swift */,
@@ -160,6 +163,7 @@
 				E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */,
 				E02C943D1EF8B54000323FF2 /* Cell.swift in Sources */,
 				E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */,
+				E07052EB1F05D07700AB2F66 /* NavigationController.swift in Sources */,
 				E056294F1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift in Sources */,
 				E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */,
 			);

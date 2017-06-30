@@ -87,4 +87,8 @@ extension ChatsViewController {
         }
         return nil
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
