@@ -27,7 +27,7 @@ extension ConversationViewController {
         bottomConstraint = NSLayoutConstraint(item: messageInputView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         view.addConstraint(bottomConstraint!)
         //self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: false)
-        //scrollToEnd()
+        scrollToEnd(animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillHide, object: nil)

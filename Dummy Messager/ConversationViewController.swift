@@ -15,14 +15,14 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     var messages: [Message]?
     var chat: Chat? {
         didSet {
-            navigationItem.title = chat?.contactName
+            navigationItem.title = chat?.contactName?.components(separatedBy: " ")[0]
             messages = chat?.messages?.allObjects as? [Message]
             messages?.sort(by: {$0.time!.compare($1.time! as Date) == .orderedAscending})
         }
     }
     
     let messageInputView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .regular)
         let view = UIVisualEffectView(effect: blurEffect)
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -62,12 +62,14 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             messages?.append(newMessage)
             let path = IndexPath(item: messages!.count - 1, section: 0)
             collectionView?.insertItems(at: [path])
-            collectionView?.scrollToItem(at: path, at: .bottom, animated: true)
-            scrollToEnd(animated: true)
+            //collectionView?.scrollToItem(at: path, at: .bottom, animated: true)
+            
             inputTextField.text = nil
         } catch let err {
             print(err)
         }
+        
+        scrollToEnd(animated: true, plus: currentKeyboardHeight + messageInputView.frame.height + 5)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
