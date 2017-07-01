@@ -10,6 +10,7 @@ import UIKit
 
 class ConversationViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var currentKeyboardHeight: CGFloat = 0
     let reuseIdentifier = "I'm a message cell, broh"
     var messages: [Message]?
     var chat: Chat? {
@@ -62,6 +63,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             let path = IndexPath(item: messages!.count - 1, section: 0)
             collectionView?.insertItems(at: [path])
             collectionView?.scrollToItem(at: path, at: .bottom, animated: true)
+            scrollToEnd(animated: true)
             inputTextField.text = nil
         } catch let err {
             print(err)

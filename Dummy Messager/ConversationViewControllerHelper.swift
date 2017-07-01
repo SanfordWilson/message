@@ -26,7 +26,8 @@ extension ConversationViewController {
         setupInput()
         bottomConstraint = NSLayoutConstraint(item: messageInputView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         view.addConstraint(bottomConstraint!)
-        self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: false)
+        //self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: false)
+        //scrollToEnd()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillHide, object: nil)
@@ -55,6 +56,7 @@ extension ConversationViewController {
         } catch let err {
             print(err)
         }
+        scrollToEnd(animated: true, plus: currentKeyboardHeight)
     }
 
     func handleKeyboard(notification: Notification) {
@@ -71,7 +73,11 @@ extension ConversationViewController {
             }, completion: {(completed) in
                 
                 if isKeyboardVisible {
-                    self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: true)
+                    self.currentKeyboardHeight = (keyboardFrame?.height)!
+                    self.scrollToEnd(animated: true, plus: self.currentKeyboardHeight)
+                    //self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: true)
+                } else {
+                    self.currentKeyboardHeight = 0
                 }
             })
         }
@@ -91,4 +97,17 @@ extension ConversationViewController {
         return true
     }
     
+    func scrollToEnd(animated: Bool, plus: CGFloat = 0) {
+        if let contentHeight = self.collectionView?.contentSize.height, let boundsHeight = self.collectionView?.bounds.size.height {
+            if contentHeight - (boundsHeight - plus) > 0 {
+                let bottomOffset = CGPoint(x: 0, y: contentHeight - (boundsHeight - plus))
+                self.collectionView?.setContentOffset(bottomOffset, animated: animated)
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollToEnd(animated: false)
+    }
 }
