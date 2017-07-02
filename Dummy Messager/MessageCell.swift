@@ -47,5 +47,14 @@ class MessageCell: Cell {
         addSubview(profilePictureView)
         visuallyFormat(format: "H:|-5-[v0(\(Int(MessageCell.profilePictureRadius)*2))]", views: profilePictureView)
         visuallyFormat(format: "V:[v0(\(Int(MessageCell.profilePictureRadius)*2))]|", views: profilePictureView)
+        bubbleView.addSubview(bubbleImageView)
+        bubbleView.visuallyFormat(format: "H:|[v0]|", views: bubbleImageView)
+        bubbleView.visuallyFormat(format: "V:|[v0]|", views: bubbleImageView)
     }
+    
+    let bubbleImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "LeftChatBubble")?.resizableImage(withCapInsets: UIEdgeInsetsMake(20,20,20,20))
+        return imageView
+    }()
 }
