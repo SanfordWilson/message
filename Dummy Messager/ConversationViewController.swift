@@ -10,7 +10,7 @@ import UIKit
 
 class ConversationViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var currentKeyboardHeight: CGFloat = 0
+    var currentKeyboardHeight: CGFloat = 0.0
     let reuseIdentifier = "I'm a message cell, broh"
     var messages: [Message]?
     var chat: Chat? {
@@ -92,7 +92,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             if !message.isSender {
                 cell.textView.frame = CGRect(x: MessageCell.profilePictureRadius*4+5, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
                 cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*4, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
-                cell.bubbleView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+                cell.bubbleView.backgroundColor = UIColor.clear
                 cell.textView.textColor = UIColor.darkText
                 cell.profilePictureView.isHidden = false
                 if let contactImage = message.chat?.contactImageName {
@@ -101,8 +101,10 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             } else {
                 cell.textView.frame = CGRect(x: view.frame.width - frameEstimate.width - 15 - 10, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
                 cell.bubbleView.frame = CGRect(x: view.frame.width - frameEstimate.width - 20 - 10, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
-                cell.bubbleView.backgroundColor = UIColor.blue
+                cell.bubbleView.backgroundColor = UIColor.clear
                 cell.textView.textColor = UIColor.white
+                cell.bubbleImageView.image = UIImage(named: "Artboard Left")?.withRenderingMode(.alwaysTemplate)
+                cell.bubbleImageView.tintColor = UIColor.blue
                 cell.profilePictureView.isHidden = true
             }
         }
