@@ -43,7 +43,7 @@ extension ChatsViewController {
             janani.contactImageName = "Janani"
             
             let _ = ChatsViewController.createMessage(withText: "Dash-dash, come over: I'm making pasta", onChat: janani, context: context, time: NSDate(timeIntervalSinceNow: -98465))
-            let _ = ChatsViewController.createMessage(withText: "Sexy pasta", onChat: janani, context: context, time: NSDate(), isSender: true)
+            let _ = ChatsViewController.createMessage(withText: "Sexy pasta?", onChat: janani, context: context, time: NSDate(), isSender: true)
             
             let sanford = NSEntityDescription.insertNewObject(forEntityName: "Chat", into: context) as! Chat
             sanford.contactName = "Sanford Wilson"
