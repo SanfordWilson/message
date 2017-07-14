@@ -4,7 +4,7 @@
         <attribute name="contactImageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contactName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="chat" inverseEntity="Message" syncable="YES"/>
-        <relationship name="queuedMessages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QueuedMessage" inverseName="chat" inverseEntity="QueuedMessage" syncable="YES"/>
+        <relationship name="queuedMessages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QueuedMessage" inverseName="chat" inverseEntity="QueuedMessage" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
         <attribute name="isSender" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -13,12 +13,13 @@
         <relationship name="chat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chat" inverseName="messages" inverseEntity="Chat" syncable="YES"/>
     </entity>
     <entity name="QueuedMessage" representedClassName="QueuedMessage" syncable="YES" codeGenerationType="class">
+        <attribute name="queueOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="chat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chat" inverseName="queuedMessages" inverseEntity="Chat" syncable="YES"/>
+        <relationship name="chat" maxCount="1" deletionRule="Nullify" destinationEntity="Chat" inverseName="queuedMessages" inverseEntity="Chat" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Chat" positionX="-254" positionY="171" width="128" height="105"/>
+        <element name="Chat" positionX="-254" positionY="171" width="128" height="103"/>
         <element name="Message" positionX="25" positionY="234" width="128" height="103"/>
-        <element name="QueuedMessage" positionX="-117" positionY="243" width="128" height="75"/>
+        <element name="QueuedMessage" positionX="7" positionY="36" width="128" height="88"/>
     </elements>
 </model>

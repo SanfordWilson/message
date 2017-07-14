@@ -13,13 +13,17 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     var currentKeyboardHeight: CGFloat = 0
     let reuseIdentifier = "I'm a message cell, broh"
     var messages: [Message]?
+    var queuedMessages: [QueuedMessage]?
     var chat: Chat? {
         didSet {
             navigationItem.title = chat?.contactName?.components(separatedBy: " ")[0]
             messages = chat?.messages?.allObjects as? [Message]
             messages?.sort(by: {$0.time!.compare($1.time! as Date) == .orderedAscending})
+            queuedMessages = chat?.queuedMessages?.allObjects as? [QueuedMessage]
+            queuedMessages?.sort(by: {$0.queueOrder < $1.queueOrder})
         }
     }
+    
     
     let messageInputView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .regular)
