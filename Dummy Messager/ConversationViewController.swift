@@ -51,29 +51,31 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         button.backgroundColor = UIColor.darkGray
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(sendNewMessage), for: .touchUpInside)
+        button.addTarget(self, action: #selector(sendNewMessageFromInput), for: .touchUpInside)
         return button
     }()
     
-    func sendNewMessage() {
-
+    func newMessage(text: String?, isSender: Bool) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
-        let newMessage = ChatsViewController.createMessage(withText: inputTextField.text, onChat: chat!, context: context, time: NSDate(), isSender: true)
+        let newMessage = ChatsViewController.createMessage(withText: text, onChat: chat!, context: context, time: NSDate(), isSender: isSender)
         
         do {
             try context.save()
             messages?.append(newMessage)
             let path = IndexPath(item: messages!.count - 1, section: 0)
             collectionView?.insertItems(at: [path])
-            //collectionView?.scrollToItem(at: path, at: .bottom, animated: true)
-            
-            inputTextField.text = nil
         } catch let err {
             print(err)
         }
         
         scrollToEnd(animated: true, plus: currentKeyboardHeight + messageInputView.frame.height + 5)
+    }
+    
+    
+    func sendNewMessageFromInput() {
+        newMessage(text: inputTextField.text, isSender: true)
+        inputTextField.text = nil
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
