@@ -20,7 +20,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             messages = chat?.messages?.allObjects as? [Message]
             messages?.sort(by: {$0.time!.compare($1.time! as Date) == .orderedAscending})
             queuedMessages = chat?.queuedMessages?.allObjects as? [QueuedMessage]
-            queuedMessages?.sort(by: {$0.queueOrder < $1.queueOrder})
+            queuedMessages?.sort(by: {$0.queueOrder > $1.queueOrder})
         }
     }
     
@@ -72,10 +72,19 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         scrollToEnd(animated: true, plus: currentKeyboardHeight + messageInputView.frame.height + 5)
     }
     
+    func sendQueuedMessage() {
+        if let _ = queuedMessages {
+            if let message = queuedMessages?.popLast() {
+                newMessage(text: message.text, isSender: false)
+            }
+        }
+    }
+    
     
     func sendNewMessageFromInput() {
         newMessage(text: inputTextField.text, isSender: true)
         inputTextField.text = nil
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(sendQueuedMessage), userInfo: nil, repeats: false)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
