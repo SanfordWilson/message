@@ -25,7 +25,7 @@ class MessageCell: Cell {
     let bubbleView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        view.layer.cornerRadius = 20
+        //view.layer.cornerRadius = 20
         //view.layer.masksToBounds = true
         return view
     }()
@@ -35,7 +35,7 @@ class MessageCell: Cell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = MessageCell.profilePictureRadius
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = UIColor.cyan
+        imageView.backgroundColor = UIColor.white
         return imageView
     }()
     
@@ -54,8 +54,8 @@ class MessageCell: Cell {
     
     let bubbleImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "Artboard Right")?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = UIColor(white: 0.9, alpha: 1.0)
+        imageView.image = UIImage(named: "RightChatBubble")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor.cyan
         return imageView
     }()
 }
