@@ -10,7 +10,7 @@ import UIKit
 
 class ConversationViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var currentKeyboardHeight: CGFloat = 0
+    var currentKeyboardHeight: CGFloat = 0.0
     let reuseIdentifier = "I'm a message cell, broh"
     var messages: [Message]?
     var queuedMessages: [QueuedMessage]?
@@ -100,24 +100,27 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         cell.textView.text = messages?[indexPath.item].text
         
         if let message = messages?[indexPath.item], let messageText = message.text {
-            let size = CGSize(width: 250, height: 1000)
+            let size = CGSize(width: 220, height: CGFloat.greatestFiniteMagnitude)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
-
+            let frameWidth = frameEstimate.width + 15 > 43 ? frameEstimate.width + 15 : 43
+            let frameHeight = frameEstimate.height + 20 > 40 ? frameEstimate.height + 20 : 40
             if !message.isSender {
-                cell.textView.frame = CGRect(x: MessageCell.profilePictureRadius*4+5, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
-                cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*4, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
-                cell.bubbleView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+                cell.textView.frame = CGRect(x: MessageCell.profilePictureRadius*3+15, y: 0, width: frameWidth, height: frameHeight)
+                cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*3, y: 0.0, width: frameWidth + 15, height: frameHeight)
+                cell.bubbleView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
                 cell.textView.textColor = UIColor.darkText
                 cell.profilePictureView.isHidden = false
+                cell.bubbleImageView.image = UIImage(named: "LeftChatBubble")?.withRenderingMode(.alwaysTemplate)
                 if let contactImage = message.chat?.contactImageName {
                     cell.profilePictureView.image = UIImage(named: contactImage)
                 }
             } else {
-                cell.textView.frame = CGRect(x: view.frame.width - frameEstimate.width - 15 - 10, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
-                cell.bubbleView.frame = CGRect(x: view.frame.width - frameEstimate.width - 20 - 10, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
+                cell.textView.frame = CGRect(x: view.frame.width - frameWidth - 20, y: 0, width: frameWidth, height: frameHeight)
+                cell.bubbleView.frame = CGRect(x: view.frame.width - frameWidth - 25, y: 0.0, width: frameWidth + 15, height: frameHeight)
                 cell.bubbleView.backgroundColor = UIColor.blue
                 cell.textView.textColor = UIColor.white
+                cell.bubbleImageView.image = UIImage(named: "RightChatBubble")?.withRenderingMode(.alwaysTemplate)
                 cell.profilePictureView.isHidden = true
             }
         }
@@ -128,10 +131,10 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if let messageText = messages?[indexPath.item].text {
-            let size = CGSize(width: 250, height: 1000)
+            let size = CGSize(width: 220, height: CGFloat.greatestFiniteMagnitude)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
-            return CGSize(width: view.frame.width, height: frameEstimate.height+20)
+            return CGSize(width: view.frame.width, height: frameEstimate.height+20 > 40 ? frameEstimate.height + 20 : 40)
         }
         return CGSize(width: view.frame.width, height:100)
     }
