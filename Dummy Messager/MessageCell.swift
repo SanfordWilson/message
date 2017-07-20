@@ -55,7 +55,7 @@ class MessageCell: Cell {
     let bubbleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "RightChatBubble")?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = UIColor.cyan
+        imageView.tintColor = UIColor.white
         return imageView
     }()
 }

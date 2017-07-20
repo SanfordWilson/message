@@ -88,10 +88,11 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             let size = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
-
+            let frameWidth = frameEstimate.width + 15 > 43 ? frameEstimate.width + 15 : 43
+            let frameHeight = frameEstimate.height + 20 > 40 ? frameEstimate.height + 20 : 40
             if !message.isSender {
-                cell.textView.frame = CGRect(x: MessageCell.profilePictureRadius*4+5, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
-                cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*4, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
+                cell.textView.frame = CGRect(x: MessageCell.profilePictureRadius*4+5, y: 0, width: frameWidth, height: frameHeight)
+                cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*4, y: 0.0, width: frameWidth + 5, height: frameHeight)
                 cell.bubbleView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
                 cell.textView.textColor = UIColor.darkText
                 cell.profilePictureView.isHidden = false
@@ -100,12 +101,11 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
                     cell.profilePictureView.image = UIImage(named: contactImage)
                 }
             } else {
-                cell.textView.frame = CGRect(x: view.frame.width - frameEstimate.width - 15 - 10, y: 0, width: frameEstimate.width + 15, height: frameEstimate.height + 20)
-                cell.bubbleView.frame = CGRect(x: view.frame.width - frameEstimate.width - 20 - 10, y: 0.0, width: frameEstimate.width + 15 + 5, height: frameEstimate.height + 20)
+                cell.textView.frame = CGRect(x: view.frame.width - frameWidth - 10, y: 0, width: frameWidth, height: frameHeight)
+                cell.bubbleView.frame = CGRect(x: view.frame.width - frameWidth - 15, y: 0.0, width: frameWidth + 5, height: frameHeight)
                 cell.bubbleView.backgroundColor = UIColor.blue
                 cell.textView.textColor = UIColor.white
                 cell.bubbleImageView.image = UIImage(named: "RightChatBubble")?.withRenderingMode(.alwaysTemplate)
-                //cell.bubbleImageView.tintColor = UIColor.blue
                 cell.profilePictureView.isHidden = true
             }
         }
