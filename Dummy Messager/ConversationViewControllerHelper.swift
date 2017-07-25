@@ -104,6 +104,7 @@ extension ConversationViewController {
                 self.collectionView?.setContentOffset(bottomOffset, animated: animated)
             }
         }
+        self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .centeredVertically, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
