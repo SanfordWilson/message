@@ -142,5 +142,4 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(8, 0, 48, 0)
     }
-    
 }

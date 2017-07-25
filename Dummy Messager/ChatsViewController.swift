@@ -83,6 +83,10 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         let controller = ConversationViewController(collectionViewLayout: layout)
         controller.chat = messages?[indexPath.item].chat
         navigationController?.pushViewController(controller, animated: true)
-        
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
 }
