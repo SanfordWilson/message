@@ -69,11 +69,12 @@ extension ChatsViewController {
         loadMessages()
     }
     
-    static func createQueuedMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, queueOrder: Double) {
+    static func createQueuedMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, queueOrder: Double, after: Int16=1) {
         let queuedMessage = NSEntityDescription.insertNewObject(forEntityName: "QueuedMessage", into: context) as! QueuedMessage
         queuedMessage.text = text
         queuedMessage.chat = chat
         queuedMessage.queueOrder = queueOrder
+        queuedMessage.after = after
     }
     
     static func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate, isSender: Bool = false) -> Message {
