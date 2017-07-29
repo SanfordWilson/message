@@ -14,6 +14,22 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     let reuseIdentifier = "I'm a message cell, broh"
     var messages: [Message]?
     var queuedMessages: [QueuedMessage]?
+    var nextMessage: QueuedMessage? {
+        didSet {
+            if let message = nextMessage {
+                waitTime = message.delay
+                waitForMessages = Int(message.after)
+            }
+        }
+    }
+    var waitTime: Double?
+    var waitForMessages: Int? {
+        didSet {
+            if waitForMessages == 0 {
+                Timer.scheduledTimer(timeInterval: waitTime ?? 0, target: self, selector: #selector(sendNextMessage), userInfo: nil, repeats: false)
+            }
+        }
+    }
     var chat: Chat? {
         didSet {
             navigationItem.title = chat?.contactName?.components(separatedBy: " ")[0]
@@ -21,6 +37,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             messages?.sort(by: {$0.time!.compare($1.time! as Date) == .orderedAscending})
             queuedMessages = chat?.queuedMessages?.allObjects as? [QueuedMessage]
             queuedMessages?.sort(by: {$0.queueOrder > $1.queueOrder})
+            nextMessage = queuedMessages?.popLast()
         }
     }
     
@@ -72,11 +89,10 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         scrollToEnd(animated: true, plus: currentKeyboardHeight + messageInputView.frame.height + 5)
     }
     
-    func sendQueuedMessage() {
-        if let _ = queuedMessages {
-            if let message = queuedMessages?.popLast() {
-                newMessage(text: message.text, isSender: false)
-            }
+    func sendNextMessage() {
+        if let message = nextMessage {
+            newMessage(text: message.text, isSender: false)
+            nextMessage = queuedMessages?.popLast()
         }
     }
     
@@ -84,7 +100,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     func sendNewMessageFromInput() {
         newMessage(text: inputTextField.text, isSender: true)
         inputTextField.text = nil
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(sendQueuedMessage), userInfo: nil, repeats: false)
+        waitForMessages? -= 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
