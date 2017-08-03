@@ -44,25 +44,7 @@ extension ConversationViewController {
     }
     
     func simulateMessage() {
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let context = delegate.persistentContainer.viewContext
         
-        let newMessage = ChatsViewController.createMessage(withText: "poooo", onChat: chat!, context: context, time: NSDate(timeIntervalSinceNow: -2000))
-        
-        do {
-            try context.save()
-            
-            messages?.append(newMessage)
-            messages = messages?.sorted(by: {$0.time!.compare($1.time! as Date) == .orderedDescending})
-            
-            if let item = messages?.index(of: newMessage) {
-                let path = IndexPath(item: item, section: 0)
-                collectionView?.insertItems(at: [path])
-            }
-        } catch let err {
-            print(err)
-        }
-        scrollToEnd(animated: true, plus: currentKeyboardHeight)
     }
 
     func handleKeyboard(notification: Notification) {
@@ -109,7 +91,7 @@ extension ConversationViewController {
                 self.collectionView?.setContentOffset(bottomOffset, animated: animated)
             }
         }
-        self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .centeredVertically, animated: animated)
+        self.collectionView?.scrollToItem(at: IndexPath(item: (messagesFetchController.sections?[0].numberOfObjects)! - 1, section: 0), at: .centeredVertically, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
