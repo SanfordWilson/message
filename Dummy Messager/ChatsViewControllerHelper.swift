@@ -65,8 +65,6 @@ extension ChatsViewController {
                 print(err)
             }
         }
-        
-        loadMessages()
     }
     
     static func createQueuedMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, queueOrder: Double, after: Int16=1, delay: Double=1) {
@@ -84,6 +82,10 @@ extension ChatsViewController {
         message.time = time
         message.chat = chat
         message.isSender = isSender
+        
+        if !(chat.lastMessage != nil) || time.compare(chat.lastMessage!.time! as Date) == .orderedDescending {
+            chat.lastMessage = message
+        }
         return message
     }
     
