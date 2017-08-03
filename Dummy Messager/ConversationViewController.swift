@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class ConversationViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    /// Tracks keyboard for setting bottom edge insets
     var currentKeyboardHeight: CGFloat = 0.0
     let reuseIdentifier = "I'm a message cell, broh"
     var messages: [Message]?
     var queuedMessages: [QueuedMessage]?
+    
+    /// Sets the number of messages to wait and delay time when a message is queued
     var nextMessage: QueuedMessage? {
         didSet {
             if let message = nextMessage {
@@ -22,7 +26,10 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             }
         }
     }
+    
     var waitTime: Double?
+    
+    /// Triggers the next queued message on a timer when set to 0
     var waitForMessages: Int? {
         didSet {
             if waitForMessages == 0 {
@@ -30,6 +37,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             }
         }
     }
+    
     var chat: Chat? {
         didSet {
             navigationItem.title = chat?.contactName?.components(separatedBy: " ")[0]
@@ -41,7 +49,18 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         }
     }
     
+    lazy var messagesFetchController: NSFetchedResultsController = { () -> NSFetchedResultsController<Message> in
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
+        let request: NSFetchRequest<Message> = Message.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+        request.predicate = NSPredicate(format: "chat = %@", self.chat!)
+        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return controller
+    }()
     
+    /// Bottom bar for input field and buttons (with blur effect)
     let messageInputView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .regular)
         let view = UIVisualEffectView(effect: blurEffect)
@@ -50,6 +69,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         return view
     }()
     
+    /// Where useer types out a message
     let inputTextField: UITextField = {
         let field = UITextField()
         field.placeholder = "iMessage"
@@ -72,6 +92,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         return button
     }()
     
+    ///Enters and displays a new message and scrolls to the bottom
     func newMessage(text: String?, isSender: Bool) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
@@ -89,6 +110,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         scrollToEnd(animated: true, plus: currentKeyboardHeight + messageInputView.frame.height + 5)
     }
     
+    /// Enters and displays the currently queued QueuedMessage, and queues the next one if it exists
     func sendNextMessage() {
         if let message = nextMessage {
             newMessage(text: message.text, isSender: false)
@@ -96,7 +118,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         }
     }
     
-    
+    /// Sends message with text form input field, wipes field, and incriments waitForMessages by -1
     func sendNewMessageFromInput() {
         newMessage(text: inputTextField.text, isSender: true)
         inputTextField.text = nil
@@ -111,6 +133,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         }
     }
     
+    // Sets up the MessageCell using Message data. Should be refactored into MessageCell class and modified to allow proper resizing
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MessageCell
         cell.textView.text = messages?[indexPath.item].text
@@ -144,6 +167,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         return cell
     }
     
+    // Sets MessageCell dimensions, some of this should be refactored into MessageCell class as well
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if let messageText = messages?[indexPath.item].text {
@@ -155,6 +179,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
         return CGSize(width: view.frame.width, height:100)
     }
     
+    // Sets default insets
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(8, 0, 48, 0)
     }

@@ -8,11 +8,18 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 extension ConversationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            try messagesFetchController.performFetch()
+        } catch let err {
+            print(err)
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ℹ︎", style: .plain, target: self, action: #selector(simulateMessage))
         
@@ -26,7 +33,6 @@ extension ConversationViewController {
         setupInput()
         bottomConstraint = NSLayoutConstraint(item: messageInputView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         view.addConstraint(bottomConstraint!)
-        //self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: false)
         scrollToEnd(animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillShow, object: nil)
@@ -75,7 +81,6 @@ extension ConversationViewController {
                 if isKeyboardVisible {
                     self.currentKeyboardHeight = (keyboardFrame?.height)!
                     self.scrollToEnd(animated: true, plus: self.currentKeyboardHeight)
-                    //self.collectionView?.scrollToItem(at: IndexPath(item: (self.messages?.count)! - 1, section: 0), at: .bottom, animated: true)
                 } else {
                     self.currentKeyboardHeight = 0
                 }
