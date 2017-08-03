@@ -29,35 +29,6 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
     
     lazy var blockOperations = [BlockOperation]()
     
-    
-//    var messages: [Message]?
-    
-//    func loadMessages() {
-//        
-//        messages = [Message]()
-//        
-//        if let Chats = fetchChats() {
-//            for chat in Chats {
-//                let delegate = UIApplication.shared.delegate as? AppDelegate
-//                if let context = delegate?.persistentContainer.viewContext {
-//                    let request: NSFetchRequest<Message> = Message.fetchRequest()
-//                    request.sortDescriptors = [NSSortDescriptor(key: "time", ascending: false)]
-//                    request.predicate = NSPredicate(format: "chat.contactName = %@", chat.contactName!)
-//                    request.fetchLimit = 1
-//                    
-//                    do {
-//                        let fetchedMessage = try context.fetch(request)
-//                        messages?.append(contentsOf: fetchedMessage)
-//                    } catch let err {
-//                        print(err)
-//                    }
-//                }
-//            }
-//            //there's gotta be a better way to do this
-//            messages?.sort(by: {$0.time!.compare($1.time! as Date) == .orderedDescending})
-//        }
-//    }
-    
     private let chatsCellIdentifier = "reuse me broh"
    
     override func viewDidLoad() {
