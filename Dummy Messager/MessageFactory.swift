@@ -7,10 +7,13 @@
 //
 
 import CoreData
+import UIKit
 
 class MessageFactory {
     
-    static func createMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, time: NSDate, isSender: Bool = false) -> Message {
+    static func createMessage(withText text: String?, onChat chat: Chat, time: NSDate, isSender: Bool = false) -> Message {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.text = text
         message.time = time
@@ -20,6 +23,13 @@ class MessageFactory {
         if !(chat.lastMessage != nil) || time.compare(chat.lastMessage!.time! as Date) == .orderedDescending {
             chat.lastMessage = message
         }
+        
+        do {
+            try context.save()
+        } catch let err {
+            print(err)
+        }
+        
         return message
     }
 }

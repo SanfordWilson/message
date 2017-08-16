@@ -93,12 +93,9 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     
     ///Enters and displays a new message and scrolls to the bottom
     func newMessage(text: String?, isSender: Bool) {
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let context = delegate.persistentContainer.viewContext
-        let _ = MessageFactory.createMessage(withText: text, onChat: chat!, context: context, time: NSDate(), isSender: isSender)
+        let _ = MessageFactory.createMessage(withText: text, onChat: chat!, time: NSDate(), isSender: isSender)
         
         do {
-            try context.save()
             try messagesFetchController.performFetch()
         } catch let err {
             print(err)
