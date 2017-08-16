@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00DDC0C1F44BB500080D333 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DDC0B1F44BB500080D333 /* MessageFactory.swift */; };
 		E0104CA11EF9C7AF00A9AA10 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0104CA01EF9C7AF00A9AA10 /* ConversationViewController.swift */; };
 		E0104CA31EF9F52500A9AA10 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0104CA21EF9F52500A9AA10 /* MessageCell.swift */; };
 		E02384FB1F338CD7005C6BF3 /* ConversationFetchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02384FA1F338CD7005C6BF3 /* ConversationFetchControl.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00DDC0B1F44BB500080D333 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
 		E0104CA01EF9C7AF00A9AA10 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		E0104CA21EF9F52500A9AA10 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E02384FA1F338CD7005C6BF3 /* ConversationFetchControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationFetchControl.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E00DDC0A1F44BB280080D333 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				E00DDC0B1F44BB500080D333 /* MessageFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		E034079C1EF199D0008DDCE0 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 				E0A4E6471F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift */,
 				E07052EE1F05E7CE00AB2F66 /* NavigationController.swift */,
 				E07052EC1F05E6D900AB2F66 /* NavBarExtension.swift */,
+				E00DDC0A1F44BB280080D333 /* Factories */,
 				E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */,
 				E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */,
 				E02384FC1F33AA2E005C6BF3 /* ChatsFetchControl.swift */,
@@ -184,6 +195,7 @@
 				E07052EF1F05E7CE00AB2F66 /* NavigationController.swift in Sources */,
 				E0104CA31EF9F52500A9AA10 /* MessageCell.swift in Sources */,
 				E0A4E6481F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift in Sources */,
+				E00DDC0C1F44BB500080D333 /* MessageFactory.swift in Sources */,
 				E02384FD1F33AA2E005C6BF3 /* ChatsFetchControl.swift in Sources */,
 				E02C943F1EF8B58800323FF2 /* ChatCell.swift in Sources */,
 				E02384FB1F338CD7005C6BF3 /* ConversationFetchControl.swift in Sources */,

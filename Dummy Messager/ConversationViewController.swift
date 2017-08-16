@@ -95,7 +95,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     func newMessage(text: String?, isSender: Bool) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
-        let _ = ChatsViewController.createMessage(withText: text, onChat: chat!, context: context, time: NSDate(), isSender: isSender)
+        let _ = MessageFactory.createMessage(withText: text, onChat: chat!, context: context, time: NSDate(), isSender: isSender)
         
         do {
             try context.save()
