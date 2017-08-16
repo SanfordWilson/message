@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E00DDC0C1F44BB500080D333 /* MessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DDC0B1F44BB500080D333 /* MessageFactory.swift */; };
+		E00DDC0E1F44BD7B0080D333 /* QueuedMessageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DDC0D1F44BD7B0080D333 /* QueuedMessageFactory.swift */; };
 		E0104CA11EF9C7AF00A9AA10 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0104CA01EF9C7AF00A9AA10 /* ConversationViewController.swift */; };
 		E0104CA31EF9F52500A9AA10 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0104CA21EF9F52500A9AA10 /* MessageCell.swift */; };
 		E02384FB1F338CD7005C6BF3 /* ConversationFetchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02384FA1F338CD7005C6BF3 /* ConversationFetchControl.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		E00DDC0B1F44BB500080D333 /* MessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFactory.swift; sourceTree = "<group>"; };
+		E00DDC0D1F44BD7B0080D333 /* QueuedMessageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueuedMessageFactory.swift; sourceTree = "<group>"; };
 		E0104CA01EF9C7AF00A9AA10 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		E0104CA21EF9F52500A9AA10 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E02384FA1F338CD7005C6BF3 /* ConversationFetchControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationFetchControl.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				E00DDC0B1F44BB500080D333 /* MessageFactory.swift */,
+				E00DDC0D1F44BD7B0080D333 /* QueuedMessageFactory.swift */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				E04E5A371F0435F0004FBA1F /* ConversationViewControllerHelper.swift in Sources */,
 				E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */,
 				E02C943D1EF8B54000323FF2 /* Cell.swift in Sources */,
+				E00DDC0E1F44BD7B0080D333 /* QueuedMessageFactory.swift in Sources */,
 				E03407B11EF199D0008DDCE0 /* Dummy_Messager.xcdatamodeld in Sources */,
 				E056294F1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift in Sources */,
 				E03407BF1EF1FAB9008DDCE0 /* ChatsViewController.swift in Sources */,

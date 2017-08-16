@@ -57,23 +57,14 @@ extension ChatsViewController {
             let _ = MessageFactory.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
             let _ = MessageFactory.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
             let _ = MessageFactory.createMessage(withText: "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip", onChat: sanford, context: context, time: NSDate(timeIntervalSinceNow: -96243))
-            ChatsViewController.createQueuedMessage(withText: "First queued message. Next one will come after 2 texts with a 5 second delay", onChat: sanford, context: context, queueOrder: 0)
-            ChatsViewController.createQueuedMessage(withText: "Second queued message", onChat: sanford, context: context, queueOrder: 10, after: 2, delay: 5)
-            ChatsViewController.createQueuedMessage(withText: "This is the third queued message and it comes after the last one with no input", onChat: sanford, context: context, queueOrder: 20, after: 0)
+            QueuedMessageFactory.createQueuedMessage(withText: "First queued message. Next one will come after 2 texts with a 5 second delay", onChat: sanford, context: context, queueOrder: 0)
+            QueuedMessageFactory.createQueuedMessage(withText: "Second queued message", onChat: sanford, context: context, queueOrder: 10, after: 2, delay: 5)
+            QueuedMessageFactory.createQueuedMessage(withText: "This is the third queued message and it comes after the last one with no input", onChat: sanford, context: context, queueOrder: 20, after: 0)
             do { try context.save()
             } catch let err {
                 print(err)
             }
         }
-    }
-    
-    static func createQueuedMessage(withText text: String?, onChat chat: Chat, context: NSManagedObjectContext, queueOrder: Double, after: Int16=1, delay: Double=1) {
-        let queuedMessage = NSEntityDescription.insertNewObject(forEntityName: "QueuedMessage", into: context) as! QueuedMessage
-        queuedMessage.text = text
-        queuedMessage.chat = chat
-        queuedMessage.queueOrder = queueOrder
-        queuedMessage.after = after
-        queuedMessage.delay = delay
     }
     
     func fetchChats() -> [Chat]? {
