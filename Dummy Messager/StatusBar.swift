@@ -35,7 +35,7 @@ class StatusBar: UIView {
         visuallyFormat(format: "V:|-5-[v0]-5-|", views: chargingImageView)
         visuallyFormat(format: "H:|-5-[v0(40)]-2-[v1]-2-[v2]-2-[v3(20)]", views: connectionStrengthImageView, carrierLabel, signalTypeLabel, wifiStrengthButton)
         addConstraint(NSLayoutConstraint(item: dateLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-        visuallyFormat(format: "H:[v0(20)]-2-[v1(5)]-5-|", views: batteryImageView, chargingImageView)
+        visuallyFormat(format: "H:[v0(30)]-2-[v1(5)]-5-|", views: batteryImageView, chargingImageView)
         wifiStrengthButton.isHidden = true
         
     }
@@ -54,12 +54,7 @@ class StatusBar: UIView {
     
     let dateLabel = DateLabel()
     
-    let batteryImageView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.image = UIImage(named: "BatteryFull")
-        return view
-    }()
+    let batteryImageView = BatteryImageView()
     
     let chargingImageView: UIImageView = {
         let view = UIImageView()
