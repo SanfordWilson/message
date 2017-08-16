@@ -22,6 +22,7 @@
 		E056294F1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */; };
 		E07052ED1F05E6DA00AB2F66 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07052EC1F05E6D900AB2F66 /* NavBarExtension.swift */; };
 		E07052EF1F05E7CE00AB2F66 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07052EE1F05E7CE00AB2F66 /* NavigationController.swift */; };
+		E0A4E6481F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4E6471F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift */; };
 		E0C295F81F0EA4AF0063E736 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C295F71F0EA4AF0063E736 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewControllerHelper.swift; sourceTree = "<group>"; };
 		E07052EC1F05E6D900AB2F66 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBarExtension.swift; path = ../NavBarExtension.swift; sourceTree = "<group>"; };
 		E07052EE1F05E7CE00AB2F66 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = NavigationController.swift; path = ../NavigationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E0A4E6471F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		E0C295F71F0EA4AF0063E736 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -79,11 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				E03407A81EF199D0008DDCE0 /* AppDelegate.swift */,
+				E0A4E6471F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift */,
 				E07052EE1F05E7CE00AB2F66 /* NavigationController.swift */,
 				E07052EC1F05E6D900AB2F66 /* NavBarExtension.swift */,
 				E03407BD1EF19B99008DDCE0 /* ChatsViewController.swift */,
-				E02384FC1F33AA2E005C6BF3 /* ChatsFetchControl.swift */,
 				E056294E1EF985D800A9CCC8 /* ChatsViewControllerHelper.swift */,
+				E02384FC1F33AA2E005C6BF3 /* ChatsFetchControl.swift */,
 				E0104CA01EF9C7AF00A9AA10 /* ConversationViewController.swift */,
 				E02384FA1F338CD7005C6BF3 /* ConversationFetchControl.swift */,
 				E04E5A361F0435F0004FBA1F /* ConversationViewControllerHelper.swift */,
@@ -180,6 +183,7 @@
 			files = (
 				E07052EF1F05E7CE00AB2F66 /* NavigationController.swift in Sources */,
 				E0104CA31EF9F52500A9AA10 /* MessageCell.swift in Sources */,
+				E0A4E6481F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift in Sources */,
 				E02384FD1F33AA2E005C6BF3 /* ChatsFetchControl.swift in Sources */,
 				E02C943F1EF8B58800323FF2 /* ChatCell.swift in Sources */,
 				E02384FB1F338CD7005C6BF3 /* ConversationFetchControl.swift in Sources */,

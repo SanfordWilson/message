@@ -28,6 +28,8 @@ extension ConversationViewController: NSFetchedResultsControllerDelegate {
                 operation.start()
             }
         }, completion: { _ in
+            self.collectionView?.reloadData()
+            (self.collectionView?.collectionViewLayout as! DynamicCollectionViewFlowLayout).reset()
             self.scrollToEnd(animated: true)
         })
     }

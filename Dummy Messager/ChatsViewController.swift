@@ -67,7 +67,7 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let layout = UICollectionViewFlowLayout()
+        let layout = DynamicCollectionViewFlowLayout()
         let controller = ConversationViewController(collectionViewLayout: layout)
         let chat = chatsFetchController.object(at: indexPath)
         controller.chat = chat

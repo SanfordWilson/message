@@ -96,6 +96,8 @@ extension ConversationViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        collectionViewLayout.invalidateLayout()
         scrollToEnd(animated: false)
     }
+    
 }
