@@ -6,7 +6,6 @@
 //  Copyright © 2017 Sanford Wilson. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 extension ChatsViewController: NSFetchedResultsControllerDelegate {

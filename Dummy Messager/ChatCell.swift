@@ -12,9 +12,7 @@ class ChatCell: Cell {
     /* Cell displaying an (optional) profile pic + default display, name of the chat, snippet, and "time"
     many many things left to add in here
     */
-    
-    
-    //placeholder message var will be improved later
+
     let currentTime = NSDate()
     
     var message: Message? {
@@ -48,15 +46,8 @@ class ChatCell: Cell {
         }
     }
     
-    
     //set up an empty imageview for the profile pic with scaling and circular border
-    let profileImageView: UIImageView = {
-        let profileView = UIImageView()
-        profileView.contentMode = .scaleAspectFill
-        profileView.layer.cornerRadius = 30
-        profileView.layer.masksToBounds = true
-        return profileView
-    }()
+    let profileImageView = ProfileImageView(radius: 30)
     
     //set up an empty, gray view for a divider line
     let dividerLine: UIView = {

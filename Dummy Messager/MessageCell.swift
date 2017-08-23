@@ -25,28 +25,19 @@ class MessageCell: Cell {
     let bubbleView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        //view.layer.cornerRadius = 20
-        //view.layer.masksToBounds = true
         return view
     }()
     
-    let profilePictureView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = MessageCell.profilePictureRadius
-        imageView.layer.masksToBounds = true
-        imageView.backgroundColor = UIColor.white
-        return imageView
-    }()
+    let profileImageView = ProfileImageView(radius: profilePictureRadius)
     
     override func shapeCell() {
         super.shapeCell()
         backgroundColor = UIColor.white
         addSubview(bubbleView)
         addSubview(textView)
-        addSubview(profilePictureView)
-        visuallyFormat(format: "H:|-5-[v0(\(Int(MessageCell.profilePictureRadius)*2))]", views: profilePictureView)
-        visuallyFormat(format: "V:[v0(\(Int(MessageCell.profilePictureRadius)*2))]|", views: profilePictureView)
+        addSubview(profileImageView)
+        visuallyFormat(format: "H:|-5-[v0(\(Int(MessageCell.profilePictureRadius)*2))]", views: profileImageView)
+        visuallyFormat(format: "V:[v0(\(Int(MessageCell.profilePictureRadius)*2))]|", views: profileImageView)
         bubbleView.addSubview(bubbleImageView)
         bubbleView.visuallyFormat(format: "H:|[v0]|", views: bubbleImageView)
         bubbleView.visuallyFormat(format: "V:|[v0]|", views: bubbleImageView)

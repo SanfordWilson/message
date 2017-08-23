@@ -146,10 +146,10 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
                 cell.bubbleView.frame = CGRect(x: MessageCell.profilePictureRadius*3, y: 0.0, width: frameWidth + 15, height: frameHeight)
                 cell.bubbleView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
                 cell.textView.textColor = UIColor.darkText
-                cell.profilePictureView.isHidden = false
+                cell.profileImageView.isHidden = false
                 cell.bubbleImageView.image = UIImage(named: "LeftChatBubble")?.withRenderingMode(.alwaysTemplate)
                 if let contactImage = message.chat?.contactImageName {
-                    cell.profilePictureView.image = UIImage(named: contactImage)
+                    cell.profileImageView.image = UIImage(named: contactImage)
                 }
             } else {
                 cell.textView.frame = CGRect(x: view.frame.width - frameWidth - 15, y: 0, width: frameWidth, height: frameHeight)
@@ -157,7 +157,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
                 cell.bubbleView.backgroundColor = UIColor.blue
                 cell.textView.textColor = UIColor.white
                 cell.bubbleImageView.image = UIImage(named: "RightChatBubble")?.withRenderingMode(.alwaysTemplate)
-                cell.profilePictureView.isHidden = true
+                cell.profileImageView.isHidden = true
             }
         }
         
