@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DateLabel: UILabel {
+class UpdatingDateLabel: UILabel {
     
     let formatter: DateFormatter = {
         let formatter = DateFormatter()

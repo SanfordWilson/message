@@ -52,7 +52,7 @@ class StatusBar: UIView {
         return button
     }()
     
-    let dateLabel = DateLabel()
+    let dateLabel = UpdatingDateLabel()
     
     let batteryImageView = BatteryImageView()
     

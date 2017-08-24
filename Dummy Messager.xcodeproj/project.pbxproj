@@ -28,11 +28,12 @@
 		E095DE6E1F44CFEB00C71CD9 /* ConnectionStrengthImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095DE6D1F44CFEB00C71CD9 /* ConnectionStrengthImageView.swift */; };
 		E095DE701F44EBF800C71CD9 /* CarrierLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095DE6F1F44EBF800C71CD9 /* CarrierLabel.swift */; };
 		E095DE721F44EE8C00C71CD9 /* SignalTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095DE711F44EE8C00C71CD9 /* SignalTypeLabel.swift */; };
-		E095DE741F44FA3000C71CD9 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095DE731F44FA2F00C71CD9 /* DateLabel.swift */; };
+		E095DE741F44FA3000C71CD9 /* UpdatingDateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095DE731F44FA2F00C71CD9 /* UpdatingDateLabel.swift */; };
 		E095DE761F45038C00C71CD9 /* BatteryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E095DE751F45038C00C71CD9 /* BatteryImageView.swift */; };
 		E0A4E6481F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4E6471F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift */; };
 		E0C295F81F0EA4AF0063E736 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C295F71F0EA4AF0063E736 /* CoreData.framework */; };
 		E0E32CB31F4D10A300AF714A /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E32CB21F4D10A300AF714A /* ProfileImageView.swift */; };
+		E0E32CB71F4F175F00AF714A /* ConditionalDateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E32CB61F4F175F00AF714A /* ConditionalDateLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,11 +60,12 @@
 		E095DE6D1F44CFEB00C71CD9 /* ConnectionStrengthImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStrengthImageView.swift; sourceTree = "<group>"; };
 		E095DE6F1F44EBF800C71CD9 /* CarrierLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrierLabel.swift; sourceTree = "<group>"; };
 		E095DE711F44EE8C00C71CD9 /* SignalTypeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalTypeLabel.swift; sourceTree = "<group>"; };
-		E095DE731F44FA2F00C71CD9 /* DateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		E095DE731F44FA2F00C71CD9 /* UpdatingDateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatingDateLabel.swift; sourceTree = "<group>"; };
 		E095DE751F45038C00C71CD9 /* BatteryImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryImageView.swift; sourceTree = "<group>"; };
 		E0A4E6471F3A5B030093E62D /* DynamicCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		E0C295F71F0EA4AF0063E736 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E0E32CB21F4D10A300AF714A /* ProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		E0E32CB61F4F175F00AF714A /* ConditionalDateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalDateLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,7 @@
 			children = (
 				E00DDC111F44CC070080D333 /* StatusBar.swift */,
 				E095DE751F45038C00C71CD9 /* BatteryImageView.swift */,
-				E095DE731F44FA2F00C71CD9 /* DateLabel.swift */,
+				E095DE731F44FA2F00C71CD9 /* UpdatingDateLabel.swift */,
 				E095DE711F44EE8C00C71CD9 /* SignalTypeLabel.swift */,
 				E095DE6F1F44EBF800C71CD9 /* CarrierLabel.swift */,
 				E095DE6D1F44CFEB00C71CD9 /* ConnectionStrengthImageView.swift */,
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E0E32CB21F4D10A300AF714A /* ProfileImageView.swift */,
+				E0E32CB61F4F175F00AF714A /* ConditionalDateLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -256,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E095DE741F44FA3000C71CD9 /* DateLabel.swift in Sources */,
+				E095DE741F44FA3000C71CD9 /* UpdatingDateLabel.swift in Sources */,
 				E00DDC121F44CC070080D333 /* StatusBar.swift in Sources */,
 				E095DE701F44EBF800C71CD9 /* CarrierLabel.swift in Sources */,
 				E07052EF1F05E7CE00AB2F66 /* NavigationController.swift in Sources */,
@@ -271,6 +274,7 @@
 				E04E5A371F0435F0004FBA1F /* ConversationViewControllerHelper.swift in Sources */,
 				E03407A91EF199D0008DDCE0 /* AppDelegate.swift in Sources */,
 				E095DE6E1F44CFEB00C71CD9 /* ConnectionStrengthImageView.swift in Sources */,
+				E0E32CB71F4F175F00AF714A /* ConditionalDateLabel.swift in Sources */,
 				E02C943D1EF8B54000323FF2 /* Cell.swift in Sources */,
 				E0E32CB31F4D10A300AF714A /* ProfileImageView.swift in Sources */,
 				E00DDC0E1F44BD7B0080D333 /* QueuedMessageFactory.swift in Sources */,

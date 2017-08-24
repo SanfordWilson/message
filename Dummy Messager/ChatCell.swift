@@ -15,29 +15,18 @@ class ChatCell: Cell {
 
     let currentTime = NSDate()
     
-    var message: Message? {
-        didSet {
-            nameLabel.text = message?.chat?.contactName
-            snippetLabel.text = message?.text
-            if let profileImageName = message?.chat?.contactImageName {
-                profileImageView.image = UIImage(named: profileImageName)
-            } else {
-                profileImageView.image = nil
-            }
-            if let messageTime = message?.time {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "h:mm a"
-                
-                let timeSinceMessage = currentTime.timeIntervalSince(messageTime as Date)
-                
-                if timeSinceMessage > 60*60*24*7 {
-                    formatter.dateFormat = "MM/dd/yyyy"
-                } else if timeSinceMessage > 60*60*24 {
-                    formatter.dateFormat = "EEE"
-                }
-                timeLabel.text = formatter.string(from: messageTime as Date)
-            }
+    func setMessage(message: Message?) {
+        nameLabel.text = message?.chat?.contactName
+        snippetLabel.text = message?.text
+        if let profileImageName = message?.chat?.contactImageName {
+            profileImageView.image = UIImage(named: profileImageName)
+        } else {
+            profileImageView.image = nil
         }
+        if let messageTime = message?.time {
+            timeLabel.setDate(date: messageTime as Date)
+        }
+    
     }
     
     override var isHighlighted: Bool {
@@ -73,22 +62,12 @@ class ChatCell: Cell {
         return label
     }()
     
-    let timeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Sunday"
-        label.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-        label.textColor = UIColor.darkGray
-        label.textAlignment = .right
-        return label
-    }()
+    let timeLabel = ConditionalDateLabel()
     
     override func shapeCell() {
         backgroundColor = UIColor.white
         
         addSubview(profileImageView)
-        
-        //placeholder image
-        profileImageView.image = UIImage(named: "Janani")
         
         //size and place the profile image
         visuallyFormat(format: "H:|-20-[v0(60)]", views: profileImageView)
@@ -96,7 +75,6 @@ class ChatCell: Cell {
         addConstraint(NSLayoutConstraint(item: profileImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
         addSubview(dividerLine)
-        
         
         //size and place the divider line
         visuallyFormat(format: "H:|-20-[v0]|", views: dividerLine)

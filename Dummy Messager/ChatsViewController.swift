@@ -58,7 +58,7 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         let chatCell = collectionView.dequeueReusableCell(withReuseIdentifier: chatsCellIdentifier, for: indexPath) as! ChatCell
         
         let chat = chatsFetchController.object(at: indexPath)
-        chatCell.message = chat.lastMessage
+        chatCell.setMessage(message: chat.lastMessage)
         return chatCell
     }
     
