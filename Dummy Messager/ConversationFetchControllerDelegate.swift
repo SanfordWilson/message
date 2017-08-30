@@ -10,8 +10,12 @@ import Foundation
 import CoreData
 
 extension ConversationViewController: NSFetchedResultsControllerDelegate {
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             blockOperations.append(BlockOperation(block: {
@@ -21,7 +25,7 @@ extension ConversationViewController: NSFetchedResultsControllerDelegate {
             return
         }
     }
-    
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         collectionView?.performBatchUpdates({
             for operation in self.blockOperations {
@@ -29,7 +33,7 @@ extension ConversationViewController: NSFetchedResultsControllerDelegate {
             }
         }, completion: { _ in
             self.collectionView?.reloadData()
-            (self.collectionView?.collectionViewLayout as! DynamicCollectionViewFlowLayout).reset()
+            (self.collectionView?.collectionViewLayout as? DynamicCollectionViewFlowLayout)?.reset()
             self.scrollToEnd(animated: true)
         })
     }

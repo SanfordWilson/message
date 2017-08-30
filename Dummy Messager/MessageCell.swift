@@ -9,9 +9,9 @@
 import UIKit
 
 class MessageCell: Cell {
-    
+
     static let profilePictureRadius: CGFloat = 10.0
-    
+
     let textView: UITextView = {
         let view = UITextView()
         view.font = UIFont.preferredFont(forTextStyle: .body)
@@ -21,15 +21,15 @@ class MessageCell: Cell {
         view.isEditable = false
         return view
     }()
-    
+
     let bubbleView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.9, alpha: 1)
         return view
     }()
-    
+
     let profileImageView = ProfileImageView(radius: profilePictureRadius)
-    
+
     override func shapeCell() {
         super.shapeCell()
         backgroundColor = UIColor.white
@@ -42,7 +42,7 @@ class MessageCell: Cell {
         bubbleView.visuallyFormat(format: "H:|[v0]|", views: bubbleImageView)
         bubbleView.visuallyFormat(format: "V:|[v0]|", views: bubbleImageView)
     }
-    
+
     let bubbleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "RightChatBubble")?.withRenderingMode(.alwaysTemplate)

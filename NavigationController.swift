@@ -8,16 +8,15 @@
 
 import UIKit
 
-
 class NavigationController: UINavigationController {
-    
+
     let statusBar = StatusBar()
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createStatusBar()
     }
-    
+
     func createStatusBar() {
         view.addSubview(statusBar)
         view.visuallyFormat(format: "H:|[v0]|", views: statusBar)

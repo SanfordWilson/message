@@ -9,30 +9,30 @@
 import UIKit
 
 class SignalTypeLabel: UILabel {
-    
+
     enum SignalType {
         case oneX
         case threeG
         case lte
         case wifi
     }
-    
+
     private var signalType: SignalType?
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("A coder has not been implemented for this class")
     }
-    
+
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         setUpViews()
     }
-    
+
     func setUpViews() {
         setSignalType(type: .lte)
         font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: UIFontWeightThin)
     }
-    
+
     func setSignalType(type: SignalType) {
         isHidden = false
         switch type {

@@ -9,8 +9,11 @@
 import CoreData
 
 extension ChatsViewController: NSFetchedResultsControllerDelegate {
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             blockOperations.append(BlockOperation(block: {
@@ -20,9 +23,9 @@ extension ChatsViewController: NSFetchedResultsControllerDelegate {
             return
         }
     }
-    
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        collectionView?.performBatchUpdates({ 
+        collectionView?.performBatchUpdates({
             for operation in self.blockOperations {
                 operation.start()
             }
