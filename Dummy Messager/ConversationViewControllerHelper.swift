@@ -20,7 +20,7 @@ extension ConversationViewController {
             print(err)
         }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ℹ︎", style: .plain, target: self, action: #selector(simulateMessage))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ℹ︎", style: .plain, target: self, action: nil)
         
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -32,7 +32,6 @@ extension ConversationViewController {
         setupInput()
         bottomConstraint = NSLayoutConstraint(item: messageInputView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         view.addConstraint(bottomConstraint!)
-        scrollToEnd(animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: .UIKeyboardWillHide, object: nil)
@@ -40,10 +39,6 @@ extension ConversationViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         inputTextField.endEditing(true)
-    }
-    
-    func simulateMessage() {
-        
     }
 
     func handleKeyboard(notification: Notification) {

@@ -11,7 +11,6 @@ import CoreData
 
 class ChatsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     /* First point of contact for user, displays list of chats
-    TODO: special settings cell?
     TODO: Custom Back Button
     TODO: New Message Button
     TODO: Whatever that left hand button is

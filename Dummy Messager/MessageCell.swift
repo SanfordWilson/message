@@ -14,7 +14,7 @@ class MessageCell: Cell {
     
     let textView: UITextView = {
         let view = UITextView()
-        view.font = UIFont.systemFont(ofSize: 18)
+        view.font = UIFont.preferredFont(forTextStyle: .body)
         view.text = "Test test test"
         view.textColor = UIColor.darkText
         view.backgroundColor = UIColor.clear

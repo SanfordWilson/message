@@ -59,6 +59,7 @@ class ChatCell: Cell {
         label.text = "Hey there, sexy Dashy, this message is too long to fit on the screen"
         label.textColor = UIColor.darkGray
         label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 2
         return label
     }()
     
@@ -92,9 +93,9 @@ class ChatCell: Cell {
         containerView.addSubview(snippetLabel)
         containerView.addSubview(timeLabel)
         
-        containerView.visuallyFormat(format: "V:|[v0][v1(24)]", views: nameLabel, snippetLabel)
+        containerView.visuallyFormat(format: "V:|[v0]-5-[v1]", views: nameLabel, snippetLabel)
         containerView.visuallyFormat(format: "H:|[v0][v1(80)]-5-|", views: nameLabel, timeLabel)
-        containerView.visuallyFormat(format: "H:|[v0]|", views: snippetLabel)
+        containerView.visuallyFormat(format: "H:|[v0]-15-|", views: snippetLabel)
         containerView.visuallyFormat(format: "V:|[v0]", views: timeLabel)
         
     }
