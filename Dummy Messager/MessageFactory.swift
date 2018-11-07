@@ -11,7 +11,7 @@ import UIKit
 
 class MessageFactory {
 
-    static func createMessage(withText text: String?,
+    static func makeMessage(withText text: String?,
                               onChat chat: Chat,
                               time: NSDate,
                               isSender: Bool = false) -> Message {
@@ -19,7 +19,7 @@ class MessageFactory {
         let context = delegate.persistentContainer.viewContext
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.text = text
-        message.time = time
+		message.time = time as Date
         message.chat = chat
         message.isSender = isSender
 

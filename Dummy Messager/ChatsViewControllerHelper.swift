@@ -42,45 +42,45 @@ extension ChatsViewController {
             janani.contactName = "Janani Lee"
             janani.contactImageName = "Janani"
 
-            _ = MessageFactory.createMessage(withText: "Dash-dash, come over: I'm making pasta",
+            _ = MessageFactory.makeMessage(withText: "Dash-dash, come over: I'm making pasta",
               onChat: janani, time: NSDate(timeIntervalSinceNow: -98465))
-            _ = MessageFactory.createMessage(withText: "Sexy pasta?", onChat: janani, time: NSDate(), isSender: true)
+            _ = MessageFactory.makeMessage(withText: "Sexy pasta?", onChat: janani, time: NSDate(), isSender: true)
 
             let sanford = NSEntityDescription.insertNewObject(forEntityName: "Chat", into: context) as! Chat
             sanford.contactName = "Sanford Wilson"
             sanford.contactImageName = "Sanford"
 
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -86243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -96243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -76243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -66243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -56243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -46243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -6243))
-            _ = MessageFactory.createMessage(withText:
+            _ = MessageFactory.makeMessage(withText:
               "trip hip triple flip triple double triple double triple double flip triple double triple double triple double flip",
               onChat: sanford, time: NSDate(timeIntervalSinceNow: -243))
-            QueuedMessageFactory.createQueuedMessage(withText:
+            QueuedMessageFactory.makeQueuedMessage(withText:
               "First queued message. Next one will come after 2 texts with a 5 second delay",
               onChat: sanford, queueOrder: 0)
-            QueuedMessageFactory.createQueuedMessage(withText:
+            QueuedMessageFactory.makeQueuedMessage(withText:
               "Second queued message",
               onChat: sanford, queueOrder: 10, after: 2, delay: 5)
-            QueuedMessageFactory.createQueuedMessage(withText:
+            QueuedMessageFactory.makeQueuedMessage(withText:
               "This is the third queued message and it comes after the last one with no input",
               onChat: sanford, queueOrder: 20, after: 0)
             do { try context.save()

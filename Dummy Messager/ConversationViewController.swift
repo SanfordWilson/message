@@ -94,7 +94,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
 
     ///Enters and displays a new message and scrolls to the bottom
     func newMessage(text: String?, isSender: Bool) {
-        _ = MessageFactory.createMessage(withText: text, onChat: chat!, time: NSDate(), isSender: isSender)
+        _ = MessageFactory.makeMessage(withText: text, onChat: chat!, time: NSDate(), isSender: isSender)
 
         do {
             try messagesFetchController.performFetch()
@@ -106,7 +106,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     }
 
     /// Enters and displays the currently queued QueuedMessage, and queues the next one if it exists
-    func sendNextMessage() {
+    @objc func sendNextMessage() {
         if let message = nextMessage {
             newMessage(text: message.text, isSender: false)
             nextMessage = queuedMessages?.popLast()
@@ -114,7 +114,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     }
 
     /// Sends message with text form input field, wipes field, and incriments waitForMessages by -1
-    func sendNewMessageFromInput() {
+    @objc func sendNewMessageFromInput() {
         if let text = inputTextField.text {
             newMessage(text: text, isSender: true)
             inputTextField.text = nil
@@ -143,7 +143,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             let size = CGSize(width: view.frame.width * 0.618, height: CGFloat.greatestFiniteMagnitude)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options,
-              attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
+              attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)], context: nil)
             let frameWidth = frameEstimate.width + 15 > 43 ? frameEstimate.width + 15 : 43
             let frameHeight = frameEstimate.height + 20 > 40 ? frameEstimate.height + 20 : 40
             if !message.isSender {
@@ -182,7 +182,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             let size = CGSize(width: view.frame.width * 0.618, height: CGFloat.greatestFiniteMagnitude)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options,
-              attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
+              attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)], context: nil)
             return CGSize(width: view.frame.width,
               height: frameEstimate.height+20 > 40 ? frameEstimate.height + 20 : 40)
         }

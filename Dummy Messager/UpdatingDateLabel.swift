@@ -35,7 +35,7 @@ class UpdatingDateLabel: UILabel {
            selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
 
-    func updateTime() {
+    @objc func updateTime() {
         text = formatter.string(from: Date())
     }
 

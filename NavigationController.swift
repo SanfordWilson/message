@@ -10,6 +10,7 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
+	private
     let statusBar = StatusBar()
 
     override func viewDidLoad() {

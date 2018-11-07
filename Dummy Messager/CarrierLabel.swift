@@ -18,13 +18,13 @@ class CarrierLabel: UILabel {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+	func setCarrier(name: String) {
+		text = name.capitalized
+	}
+	
+	private
     func setUpViews() {
         text = "Carrier"
         font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-    }
-
-    func setCarrier(name: String) {
-        text = name.capitalized
     }
 }

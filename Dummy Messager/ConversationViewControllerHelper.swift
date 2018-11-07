@@ -44,7 +44,7 @@ extension ConversationViewController {
         inputTextField.endEditing(true)
     }
 
-    func handleKeyboard(notification: Notification) {
+    @objc func handleKeyboard(notification: Notification) {
         if let userInfo = notification.userInfo {
             let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect
 

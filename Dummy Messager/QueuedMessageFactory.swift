@@ -11,7 +11,7 @@ import UIKit
 
 class QueuedMessageFactory {
 
-    static func createQueuedMessage(withText text: String?,
+    static func makeQueuedMessage(withText text: String?,
                                     onChat chat: Chat,
                                     queueOrder: Double,
                                     after: Int16=1,

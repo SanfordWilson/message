@@ -17,7 +17,7 @@ class SignalTypeLabel: UILabel {
         case wifi
     }
 
-    private var signalType: SignalType?
+    var signalType: SignalType?
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("A coder has not been implemented for this class")
@@ -30,7 +30,7 @@ class SignalTypeLabel: UILabel {
 
     func setUpViews() {
         setSignalType(type: .lte)
-        font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: UIFontWeightThin)
+        font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: UIFont.Weight.thin)
     }
 
     func setSignalType(type: SignalType) {
