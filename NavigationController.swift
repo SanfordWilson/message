@@ -15,7 +15,7 @@ class NavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        createStatusBar()
+//        createStatusBar()
     }
 
     func createStatusBar() {

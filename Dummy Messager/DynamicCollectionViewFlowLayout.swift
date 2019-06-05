@@ -55,7 +55,7 @@ class DynamicCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
         for behavior in dynamicAnimator.behaviors {
             let useBehavior = behavior as? UIAttachmentBehavior
-            let touchDistanceY = fabs((touchPoint?.y)! - (useBehavior?.anchorPoint.y)!)
+            let touchDistanceY = abs((touchPoint?.y)! - (useBehavior?.anchorPoint.y)!)
             let resistance = touchDistanceY/1500.0
 
             let item = useBehavior?.items.first
