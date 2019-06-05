@@ -81,7 +81,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
     var bottomConstraint: NSLayoutConstraint?
 
     lazy var inputTextFieldSendButton: UIButton = {
-        let button = UIButton(type: UIButtonType.system)
+        let button = UIButton(type: UIButton.ButtonType.system)
         button.setTitle("↑", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -143,7 +143,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             let size = CGSize(width: view.frame.width * 0.618, height: CGFloat.greatestFiniteMagnitude)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options,
-              attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)], context: nil)
+              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], context: nil)
             let frameWidth = frameEstimate.width + 15 > 43 ? frameEstimate.width + 15 : 43
             let frameHeight = frameEstimate.height + 20 > 40 ? frameEstimate.height + 20 : 40
             if !message.isSender {
@@ -182,7 +182,7 @@ class ConversationViewController: UICollectionViewController, UICollectionViewDe
             let size = CGSize(width: view.frame.width * 0.618, height: CGFloat.greatestFiniteMagnitude)
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let frameEstimate = NSString(string: messageText).boundingRect(with: size, options: options,
-              attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)], context: nil)
+              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], context: nil)
             return CGSize(width: view.frame.width,
               height: frameEstimate.height+20 > 40 ? frameEstimate.height + 20 : 40)
         }

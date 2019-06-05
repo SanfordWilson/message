@@ -35,9 +35,9 @@ extension ConversationViewController {
         view.addConstraint(bottomConstraint!)
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard),
-          name: .UIKeyboardWillShow, object: nil)
+          name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard),
-          name: .UIKeyboardWillHide, object: nil)
+          name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -46,13 +46,13 @@ extension ConversationViewController {
 
     @objc func handleKeyboard(notification: Notification) {
         if let userInfo = notification.userInfo {
-            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
 
-            let isKeyboardVisible = notification.name == .UIKeyboardWillShow
+            let isKeyboardVisible = notification.name == UIResponder.keyboardWillShowNotification
 
             bottomConstraint?.constant = isKeyboardVisible ? -(keyboardFrame?.height)! : 0.0
 
-            UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
 
                 self.view.layoutIfNeeded()
             }, completion: {(_) in

@@ -38,7 +38,7 @@ extension UIView {
         }
 
         addConstraints(NSLayoutConstraint.constraints(
-          withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDict))
+          withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDict))
     }
 
 }
